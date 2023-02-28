@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import *
+
+
+class GlassesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'Type', 'Title', 'Country', 'Company', 'Photo', 'Price')
+    list_display_links = ('id', 'Title')
+    search_fields = ('Title', 'Content')
+
+admin.site.register(Product, GlassesAdmin)

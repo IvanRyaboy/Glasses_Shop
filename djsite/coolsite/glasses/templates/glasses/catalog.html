@@ -1,0 +1,15 @@
+{% extends 'glasses\base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for p in prod %}
+            <li><h2>{{ p.Company }}</h2>
+    {% autoescape on %}
+    {{ p.Title|linebreaks|truncatewords:50 }}
+    {% endautoescape %}
+            <div class="clear"></div>
+            <p class="link-read-post"><a href="{{ p.get_absolute_url }}">О товаре</a></p>
+            </li>
+    {% endfor %}
+</ul>
+{% endblock %}
